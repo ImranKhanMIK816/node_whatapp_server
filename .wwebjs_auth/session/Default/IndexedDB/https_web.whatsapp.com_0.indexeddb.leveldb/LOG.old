@@ -1,0 +1,25 @@
+2025/04/28-20:09:04.334 416c Reusing MANIFEST D:\xampp7.4\htdocs\sorin\node_whatapp_server\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/04/28-20:09:04.335 416c Recovering log #185
+2025/04/28-20:09:04.372 416c Reusing old log D:\xampp7.4\htdocs\sorin\node_whatapp_server\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000185.log 
+2025/04/28-20:09:08.546 d10 Level-0 table #196: started
+2025/04/28-20:09:08.559 d10 Level-0 table #196: 195725 bytes OK
+2025/04/28-20:09:08.565 d10 Delete type=0 #185
+2025/04/28-20:09:08.567 d10 Manual compaction at level-0 from '\x00\x1c\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x1d\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/04/28-20:09:11.475 3b4 Compacting 1@1 + 7@2 files
+2025/04/28-20:09:11.658 3b4 Generated table #197@1: 44784 keys, 2218559 bytes
+2025/04/28-20:09:11.720 3b4 Generated table #198@1: 2527 keys, 2154272 bytes
+2025/04/28-20:09:11.789 3b4 Generated table #199@1: 2341 keys, 2150722 bytes
+2025/04/28-20:09:11.925 3b4 Generated table #200@1: 23154 keys, 2239777 bytes
+2025/04/28-20:09:12.038 3b4 Generated table #201@1: 27586 keys, 2195058 bytes
+2025/04/28-20:09:12.273 3b4 Generated table #202@1: 99150 keys, 2249239 bytes
+2025/04/28-20:09:12.290 3b4 Generated table #203@1: 6595 keys, 152979 bytes
+2025/04/28-20:09:12.290 3b4 Compacted 1@1 + 7@2 files => 13360606 bytes
+2025/04/28-20:09:12.296 3b4 compacted to: files[ 0 0 7 0 0 0 0 ]
+2025/04/28-20:09:12.296 3b4 Delete type=2 #187
+2025/04/28-20:09:12.296 3b4 Delete type=2 #188
+2025/04/28-20:09:12.296 3b4 Delete type=2 #189
+2025/04/28-20:09:12.296 3b4 Delete type=2 #190
+2025/04/28-20:09:12.297 3b4 Delete type=2 #191
+2025/04/28-20:09:12.297 3b4 Delete type=2 #192
+2025/04/28-20:09:12.297 3b4 Delete type=2 #193
+2025/04/28-20:09:12.297 3b4 Delete type=2 #196
