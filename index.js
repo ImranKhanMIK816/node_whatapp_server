@@ -10,7 +10,7 @@ const fs = require('fs');
 const path = require('path');
 const clients = {};       // existing clients
 const clientStates = {};
-const PORT = process.env.PORT || 8080;
+const port = process.env.PORT || 8080;
 
 // ✅ Enable CORS for your frontend domain
 app.use(cors({
