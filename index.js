@@ -14,7 +14,7 @@ const port = process.env.PORT || 8080;
 
 // ✅ Enable CORS for your frontend domain
 app.use(cors({
-  origin: 'https://jetnetixsolutions.com'
+  origin: 'https://jetnetixsolutions.com/sorin'
 }));
 
 app.use(express.json());
