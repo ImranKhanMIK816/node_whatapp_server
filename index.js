@@ -12,7 +12,12 @@ const path = require('path');
 const clients = {};       // existing clients
 const clientStates = {};
 
-app.use(cors());
+
+
+// Allow only your frontend domain
+app.use(cors({
+  origin: 'https://jetnetixsolutions.com'
+}));
 app.use(bodyParser.json());
 
 
