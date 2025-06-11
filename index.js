@@ -6,18 +6,18 @@ const axios = require('axios');
 const bodyParser = require('body-parser');
 const url = require('url') ;
 const app = express();
-const port = process.env.PORT || 3000;
 const fs = require('fs');
 const path = require('path');
 const clients = {};       // existing clients
 const clientStates = {};
+const PORT = process.env.PORT || 8080;
 
-
-
-// Allow only your frontend domain
+// ✅ Enable CORS for your frontend domain
 app.use(cors({
   origin: 'https://jetnetixsolutions.com'
 }));
+
+app.use(express.json());
 app.use(bodyParser.json());
 
 
