@@ -13,9 +13,7 @@ const clientStates = {};
 const port = process.env.PORT || 8080;
 
 // ✅ Enable CORS for your frontend domain
-app.use(cors({
-  origin: 'https://jetnetixsolutions.com/sorin'
-}));
+app.use(cors());
 
 app.use(express.json());
 app.use(bodyParser.json());
@@ -48,14 +46,14 @@ function startClientForUser(userId) {
                 qr_code: qrDataUrl
             });
 
-            console.log(`QR code sent for user ${userId}`);
+            //console.log(`QR code sent for user ${userId}`);
         } catch (err) {
             console.error('Error generating or sending QR:', err.message);
         }
     });
 
     client.on('ready', async () => {
-        console.log(`WhatsApp client is ready for user ${userId}`);
+        //console.log(`WhatsApp client is ready for user ${userId}`);
 
         try {
             await axios.post('http://localhost/sorin/api/update-status', {
@@ -81,7 +79,7 @@ function startClientForUser(userId) {
 
 
 client.on('disconnected', async (reason) => {
-    console.log(`Client disconnected for user ${userId}: ${reason}`);
+    //console.log(`Client disconnected for user ${userId}: ${reason}`);
 
     // Flag to prevent double destroy
     if (clients[userId]?.isDestroying) return;
@@ -119,7 +117,7 @@ client.on('disconnected', async (reason) => {
 
 
 client.on('auth_failure', async (msg) => {
-     console.log(`Client auth failure for user ${userId}: ${reason}`);
+     //console.log(`Client auth failure for user ${userId}: ${reason}`);
 // Flag to prevent double destroy
     if (clients[userId]?.isDestroying) return;
     clients[userId].isDestroying = true;
@@ -153,7 +151,7 @@ client.on('auth_failure', async (msg) => {
 });
 
 client.on('authenticated', () => {
-    console.log(`User ${userId} scanned QR and is authenticating...`);
+    //console.log(`User ${userId} scanned QR and is authenticating...`);
     clientStates[userId] = 'authenticated';
 });
 
@@ -166,7 +164,7 @@ client.on('authenticated', () => {
 
 function deleteSessionFolder(userId, retryCount = 0) {
     const sessionPath = path.join(__dirname, 'sessions', `user-${userId}`);
-    console.log(`Attempting to delete: ${sessionPath}`);
+    //console.log(`Attempting to delete: ${sessionPath}`);
 
     return new Promise((resolve, reject) => {
         fs.rm(sessionPath, { recursive: true, force: true }, (err) => {
@@ -193,7 +191,7 @@ function deleteSessionFolder(userId, retryCount = 0) {
                             reject(new Error('Folder still exists after multiple attempts'));
                         }
                     } else {
-                        console.log(`Deleted session folder for user ${userId}`);
+                        //console.log(`Deleted session folder for user ${userId}`);
                         resolve();
                     }
                 });
@@ -241,7 +239,7 @@ app.get('/qr/:userId', (req, res) => {
 app.post('/run-client-task', async (req, res) => {
     const userId = req.body.user_id;
     const client = clients[userId];
-    console.log(client)
+    //console.log(client)
     if (!client) return res.status(404).send('Client not running');
 
     try {
@@ -295,7 +293,7 @@ app.post('/logout', async (req, res) => {
     }
 
     try {
-        console.log(`Logging out client for user ${userId}`);
+        //console.log(`Logging out client for user ${userId}`);
 
         // Step 1: Logout from WhatsApp
         await client.logout(); // logs out from WhatsApp account
@@ -345,6 +343,6 @@ app.get('/client-status/:userId', (req, res) => {
 // ================================================================
 
 app.listen(port, () => {
-    console.log(`WhatsApp Node.js server running at http://localhost:${port}`);
-    console.log(`${url}`);
+    //console.log(`WhatsApp Node.js server running at http://localhost:${port}`);
+    //console.log(`${url}`);
 });

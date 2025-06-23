@@ -1,0 +1,11 @@
+<IfModule mod_headers.c>
+    Header always set Access-Control-Allow-Origin "https://jetnetixsolutions.com"
+    Header always set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    Header always set Access-Control-Allow-Headers "Content-Type, Authorization"
+</IfModule>
+
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^whatsapp\.getorvo\.com$ [NC]
+RewriteRule ^(.*)$ http://127.0.0.1:8080/$1 [P,L]
+
+ProxyPassReverse / http://127.0.0.1:8080/
